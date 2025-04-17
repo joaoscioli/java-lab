@@ -3,6 +3,37 @@ package java_ebook_200_exercices;
 import java.util.Scanner;
 
 public class CheckArmstrongNumber {
+
+    /// # CheckArmstrongNumber
+    ///
+    /// This program determines whether a given number is an **Armstrong number**.
+    ///
+    /// ## What is an Armstrong number?
+    /// An Armstrong number is a number that is equal to the sum of its own digits
+    /// each raised to the power of the number of digits.
+    ///
+    /// ### Example:
+    /// - 153 is an Armstrong number because:
+    ///   ```
+    ///   1³ + 5³ + 3³ = 1 + 125 + 27 = 153
+    ///   ```
+    ///
+    /// ## Program Flow:
+    /// 1. Prompts the user to input a positive integer.
+    /// 2. Validates the input.
+    /// 3. Computes the number of digits.
+    /// 4. Calculates the sum of each digit raised to the power of the number of digits.
+    /// 5. Compares the sum to the original number and displays the result.
+    ///
+    /// ## Input Example:
+    /// ```
+    /// Enter a number: 153
+    /// 153 is an Armstrong number.
+    /// ```
+    ///
+    /// ## Notes:
+    /// - Input must be a non-negative integer.
+    /// - Leading zeros are ignored in numeric input.
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter a number: ");
@@ -33,12 +64,12 @@ public class CheckArmstrongNumber {
         }
 
         // Check if the sum is equal to the original number
-        if (sum == number) {System.out.println(number + " is an Armstrong number.");
+        if (sum == number) {
+            System.out.println(number + " is an Armstrong number.");
         } else {
             System.out.println(number + " is not an Armstrong number.");
         }
+
         scanner.close();
     }
 }
-// Enter a number: 153
-// 153 is an Armstrong number.
