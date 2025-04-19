@@ -2,7 +2,25 @@ package java_ebook_200_exercices;
 
 import java.util.Scanner;
 
+
+///
+/// A program to find Armstrong numbers within a specified interval.
+///
+/// An Armstrong number is a number that equals the sum of its digits raised to the power
+/// of the total number of digits. For example:
+/// - 153 = 1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153
+///
+/// @version 1.0
+///
 public class FindArmstrongNumberInterval {
+    ///
+    /// Main method that handles user input and finds Armstrong numbers in the given interval.
+    ///
+    /// Prompts the user for start and end numbers, validates the input, and displays
+    /// all Armstrong numbers found within the specified interval.
+    ///
+    /// @param args command line arguments (not used)
+    ///
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -33,6 +51,15 @@ public class FindArmstrongNumberInterval {
     }
 
     // Function to validate input and return an integer
+
+     ///
+     /// Validates and retrieves an integer input from the user.
+     ///
+     /// Continuously prompts the user until a valid integer is entered.
+     ///
+     /// @param scanner the Scanner object used for input
+     /// @return the valid integer entered by the user
+     ///
     private static int getValidInteger(Scanner scanner) {
         while (!scanner.hasNext()) {
             System.out.println("Please enter a valid positive integer.");
@@ -42,6 +69,16 @@ public class FindArmstrongNumberInterval {
     }
 
     // Function to check if a number is an Armstrong number
+
+     ///
+     /// Checks if a number is an Armstrong number.
+     ///
+     /// An Armstrong number equals the sum of its digits each raised to the power
+     /// of the total number of digits.
+     ///
+     /// @param num the number to check
+     /// @return true if the number is an Armstrong number, false otherwise
+     ///
     private static boolean isArmstrong(int num) {
         int originalNum = num;
         int sum = 0;
