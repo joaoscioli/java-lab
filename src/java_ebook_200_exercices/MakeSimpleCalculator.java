@@ -11,6 +11,11 @@ public class MakeSimpleCalculator {
 
         String operation = readOperation(scanner);
         double result = performCalculation(num1, num2, operation);
+
+        if (!Double.isNaN(result)) {
+            System.out.printf("Result: %.2f %s %.2f = %.2f%n", num1, operation, num2, result);
+        }
+        scanner.close();
     }
 
     // Function to read a number from user input
