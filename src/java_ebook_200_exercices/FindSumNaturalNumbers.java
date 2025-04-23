@@ -2,7 +2,26 @@ package java_ebook_200_exercices;
 
 import java.util.Scanner;
 
+///
+/// A program that calculates the sum of natural numbers from 1 to a given positive integer.
+///
+/// the arithmetic sequence formula: sum = n * (n + 1) / 2
+/// where n is the upper limit of the sequence.
+
+
 public class FindSumNaturalNumbers {
+   ///
+   /// Entry point of the program.
+   /// Prompts the user for a positive integer and calculates the sum of all natural numbers up to that integer.
+   ///
+   /// @param args Command line arguments (not used)
+   ///
+   /// ### Example
+   /// ```
+   /// Enter a positive integer: 12
+   /// The sum of natural numbers from 1 to 12 is: 78
+   /// ```
+   ///
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
