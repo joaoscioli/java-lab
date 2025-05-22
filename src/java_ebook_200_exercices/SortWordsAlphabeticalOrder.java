@@ -4,6 +4,33 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class SortWordsAlphabeticalOrder {
+
+    /// # SortWordsAlphabeticalOrder
+    ///
+    /// This program reads a sentence or a list of words from user input and sorts them in **alphabetical order**.
+    ///
+    /// ## Features
+    /// - Accepts a full sentence or a space-separated list of words.
+    /// - Splits the input string into individual words.
+    /// - Sorts the words in ascending alphabetical order.
+    /// - Displays the sorted list, separated by commas.
+    ///
+    /// ## Example
+    /// ```
+    /// Enter a sentence or a list of words: ad d dwqdwq qw qwd sadasd wqdwq
+    /// Sorted Words:
+    /// ad, d, dwqdwq, qw, qwd, sadasd, wqdwq
+    /// ```
+    ///
+    /// ## How it works
+    /// 1. Uses `Scanner` to capture input from the user.
+    /// 2. Splits the string by whitespace using the regular expression `\\s+`.
+    /// 3. Uses `Arrays.sort()` to perform the alphabetical sorting.
+    /// 4. Prints the result using `String.join()`.
+    ///
+    /// ## Notes
+    /// - Sorting is case-sensitive by default. Capital letters come before lowercase.
+    /// - You may want to normalize case for case-insensitive sorting.
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -23,7 +50,3 @@ public class SortWordsAlphabeticalOrder {
         scanner.close();
     }
 }
-
-// Enter a sentence or a list of words: ad d dwqdwq qw qwd sadasd wqdwq
-// Sorted Words:
-// ad, d, dwqdwq, qw, qwd, sadasd, wqdwq
