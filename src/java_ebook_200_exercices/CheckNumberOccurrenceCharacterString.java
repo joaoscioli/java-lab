@@ -28,10 +28,7 @@ public class CheckNumberOccurrenceCharacterString {
     /// 4. Filters the stream to count how many times the target character appears.
     /// 5. Outputs the result using formatted printing.
     ///
-    /// ## Notes
-    /// - The input character must be a single character string (e.g., "a", not "abc").
-    /// - The program is **case-sensitive**, meaning 'A' and 'a' are treated differently.
-    /// - Whitespace, punctuation, and symbols are counted as valid characters.
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -58,3 +55,7 @@ public class CheckNumberOccurrenceCharacterString {
         scanner.close();
     }
 }
+/// ## Notes
+/// - The input character must be a single character string (e.g., "a", not "abc").
+/// - The program is **case-sensitive**, meaning 'A' and 'a' are treated differently.
+/// - Whitespace, punctuation, and symbols are counted as valid characters.
