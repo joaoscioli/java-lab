@@ -2,6 +2,18 @@ package java_ebook_200_exercices;
 
 import java.util.ArrayList;
 
+/// # InsertItemArray
+///
+/// Demonstrates how to insert an item at the end of an `ArrayList`.
+///
+/// This example creates an `ArrayList` of integers, inserts a new item
+/// at the end using the `add` method, and prints the updated list.
+///
+/// ## Example Output
+/// ```text
+/// List after inserting: [1, 2, 3, 4, 5, 6]
+/// ```
+
 public class InsertItemArray {
     public static void main(String[] args) {
 
@@ -21,7 +33,3 @@ public class InsertItemArray {
         System.out.println("List after inserting: " + myList);
     }
 }
-
-/*
-List after inserting: [1, 2, 3, 4, 5, 6]
-*/
