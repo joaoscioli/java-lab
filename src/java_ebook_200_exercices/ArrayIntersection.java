@@ -5,7 +5,33 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/// # ArrayIntersection
+///
+/// This class demonstrates how to compute the **intersection** between two `ArrayList<Integer>`
+/// using `HashSet` in Java.
+///
+/// The method:
+/// - Populates two lists with integer elements.
+/// - Converts both lists into sets to remove duplicates and allow efficient set operations.
+/// - Applies the `retainAll` method to find the common elements between both sets.
+/// - Prints the result to the console.
+///
+/// ## Output Example
+/// ```text
+/// Intersection: [3, 4, 5]
+/// ```
 public class ArrayIntersection {
+
+    /// ## main
+    ///
+    /// Runs the intersection logic between two lists and prints the result.
+    ///
+    /// ### Steps:
+    /// 1. Creates two sample lists: `list1` and `list2`.
+    /// 2. Fills each list with integers.
+    /// 3. Converts the lists to `HashSet` to prepare for set operations.
+    /// 4. Uses `retainAll` to keep only elements that are present in both sets.
+    /// 5. Prints the intersection result to standard output.
     void main() {
         // Example ArrayLists
         List<Integer> list1 = new ArrayList<>();
@@ -36,7 +62,3 @@ public class ArrayIntersection {
         System.out.println("Intersection: " + set1);
     }
 }
-
-/*
-* Intersection: [3, 4, 5]
-*/
