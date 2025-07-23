@@ -1,34 +1,64 @@
 package java_ebook_200_exercices;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-public class ChunkArray {
+/// # ArrayIntersection
+///
+/// This class demonstrates how to compute the **intersection** between two `ArrayList<Integer>`
+/// using `HashSet` in Java.
+///
+/// The method:
+/// - Populates two lists with integer elements.
+/// - Converts both lists into sets to remove duplicates and allow efficient set operations.
+/// - Applies the `retainAll` method to find the common elements between both sets.
+/// - Prints the result to the console.
+///
+/// ## Output Example
+/// ```text
+/// Intersection: [3, 4, 5]
+/// ```
+public class ArrayIntersection {
 
-    public static <T> List<List<T>> chunkArray(List<T> array, int chunkSize) {
-        List<List<T>> chunks = new ArrayList<>();
-        for (int i = 0; i < array.size(); i+= chunkSize) {
-            int end = Math.min(i + chunkSize, array.size());
-            chunks.add(new ArrayList<>(array.subList(i, end)));
-        }
-        return chunks;
-    }
+    /// ## main
+    ///
+    /// Runs the intersection logic between two lists and prints the result.
+    ///
+    /// ### Steps:
+    /// 1. Creates two sample lists: `list1` and `list2`.
+    /// 2. Fills each list with integers.
+    /// 3. Converts the lists to `HashSet` to prepare for set operations.
+    /// 4. Uses `retainAll` to keep only elements that are present in both sets.
+    /// 5. Prints the intersection result to standard output.
+    void main() {
+        // Example ArrayLists
+        List<Integer> list1 = new ArrayList<>();
+        List<Integer> list2 = new ArrayList<>();
 
-    static void main() {
-        // Example array
-        List<Integer> myArray = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        // Fill the first list
+        list1.add(1);
+        list1.add(2);
+        list1.add(3);
+        list1.add(4);
+        list1.add(5);
 
-        // Split the array into chunks of size 3
-        List<List<Integer>> chunks = chunkArray(myArray, 3);
+        // Fill the second list
+        list2.add(3);
+        list2.add(4);
+        list2.add(5);
+        list2.add(6);
+        list2.add(7);
+
+        // Create HashSets from the lists
+        Set<Integer> set1 = new HashSet<>(list1);
+        Set<Integer> set2 = new HashSet<>(list2);
+
+        // Find the intersection of the two HashSets
+        set1.retainAll(set2);
 
         // Display the result
-        System.out.println("Original array: " + myArray);
-        System.out.println("Chunk: " + chunks);
+        System.out.println("Intersection: " + set1);
     }
 }
-
-/*
-* Original Array: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-* Chunks: [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10]]
-* */
