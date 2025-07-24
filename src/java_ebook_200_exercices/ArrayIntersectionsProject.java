@@ -20,7 +20,7 @@ import java.util.Set;
 /// ```text
 /// Intersection: [3, 4, 5]
 /// ```
-public class ArrayIntersection {
+public class ArrayIntersectionsProject {
 
     /// ## main
     ///
