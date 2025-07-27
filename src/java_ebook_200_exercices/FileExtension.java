@@ -1,29 +1,69 @@
 package java_ebook_200_exercices;
 
 import java.io.File;
-import java.util.Scanner;
 
+/**
+ /// # FileExtension
+ ///
+ /// Utility class for extracting the extension from a file name.
+ ///
+ /// ## Overview
+ /// This class provides a static method to retrieve the extension of a file
+ /// by analyzing the file name string. If the file does not contain a valid
+ /// extension (no period or ends with a period), the method returns `null`.
+ ///
+ /// ## Example
+ /// ```java
+ /// String extension = FileExtension.getFileExtension("example.txt");
+ /// System.out.println(extension); // Output: txt
+ /// ```
+ ///
+ */
 public class FileExtension {
-    public static String getFileExtension(String fileName) {
-        // Create a File object from the file name
-        File file = new File(fileName);
 
-        // Get the file extension
+    /**
+     /// ## getFileExtension
+     ///
+     /// Extracts the extension from the provided file name.
+     ///
+     /// ### Parameters
+     /// - `fileName`: The name of the file from which to extract the extension.
+     ///
+     /// ### Returns
+     /// - The file extension as a `String`, or `null` if no extension is found.
+     ///
+     /// ### Notes
+     /// - The extension is defined as the substring after the last `.` character.
+     /// - Hidden files or files with no extension will return `null`.
+     ///
+     /// ### Example
+     /// ```java
+     /// String ext = FileExtension.getFileExtension("document.pdf"); // returns "pdf"
+     /// ```
+     */
+    public static String getFileExtension(String fileName) {
+        File file = new File(fileName);
         String extension = "";
 
-        // Check if the file has a name
         if (file.getName().contains(".")) {
-            // Extract the extension from the file name
-            extension = file.getName().substring(file.getName().lastIndexOf(".")+1);
+            extension = file.getName().substring(file.getName().lastIndexOf(".") + 1);
         }
-        return extension.isEmpty() ? null : extension;  // Return null if no extension is found
+
+        return extension.isEmpty() ? null : extension;
     }
 
+    /**
+     /// ## main
+     ///
+     /// Demonstrates the usage of the `getFileExtension` method.
+     ///
+     /// ### Example
+     /// ```java
+     /// FileExtension.main(); // prints "File extension: txt"
+     /// ```
+     */
     void main() {
-        // Example file name
         String fileName = "example.txt";
-
-        // Get the file extension
         String extension = getFileExtension(fileName);
 
         if (extension != null) {
@@ -33,7 +73,3 @@ public class FileExtension {
         }
     }
 }
-
-/*
-* File Extension: txt
-* */
