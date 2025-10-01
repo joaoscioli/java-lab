@@ -1,7 +1,40 @@
 package java_ebook_200_exercices;
 
+/// # LikeDislike
+///
+/// Utility class that simulates the behavior of a Like/Dislike button system.
+/// Each button press changes the current state (`Like`, `Dislike`, or `Nothing`)
+/// according to simple toggle rules.
+///
+/// ## Rules
+/// - If the state is **Nothing**:
+///   - Pressing **Like** → becomes `Like`.
+///   - Pressing **Dislike** → becomes `Dislike`.
+/// - If the state is **Like**:
+///   - Pressing **Like** → returns to `Nothing`.
+///   - Pressing **Dislike** → becomes `Dislike`.
+/// - If the state is **Dislike**:
+///   - Pressing **Dislike** → returns to `Nothing`.
+///   - Pressing **Like** → becomes `Like`.
+///
+/// ## Example
+/// ```java
+/// LikeDislike.likeOrDislike(new String[]{"Like", "Like"}); // returns "Nothing"
+/// LikeDislike.likeOrDislike(new String[]{"Dislike", "Like"}); // returns "Like"
+/// ```
 public class LikeDislike {
-    // Method to determine the final state based on button presses
+
+    /// Determines the final state of the Like/Dislike system
+    /// after a sequence of button presses.
+    ///
+    /// @param buttons an array of strings representing button presses (`"Like"` or `"Dislike"`)
+    /// @return the final state: `"Like"`, `"Dislike"`, or `"Nothing"`
+    ///
+    /// ## Example
+    /// ```java
+    /// LikeDislike.likeOrDislike(new String[]{"Dislike"});
+    /// // returns "Dislike"
+    /// ```
     public static String likeOrDislike(String[] buttons) {
         String state = "Nothing";
         for (String button : buttons) {
@@ -32,6 +65,16 @@ public class LikeDislike {
         return state;
     }
 
+    /// Demonstrates the usage of the `likeOrDislike` method with
+    /// predefined test cases.
+    ///
+    /// ## Output
+    /// ```
+    /// Final state: Dislike
+    /// Final state: Nothing
+    /// Final state: Like
+    /// Final state: Nothing
+    /// ```
     public static void main(String[] args) {
         String[][] testCases = {
                 {"Dislike"},
@@ -45,9 +88,3 @@ public class LikeDislike {
         }
     }
 }
-
-// Output:
-// Final state: Dislike
-// Final state: Nothing
-// Final state: Like
-// Final state: Nothing
