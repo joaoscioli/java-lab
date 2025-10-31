@@ -61,10 +61,6 @@ package daily_question.minimumNumberIncrementsSubarraysFormTargetArray;
 ///              -> [3,1,4,4,2]
 ///              -> [3,1,5,4,2]
 /// ```
-///
-/// ## Constraints
-/// - 1 <= target.length <= 100,000
-/// - 1 <= target[i] <= 100,000
 public class Solution {
 
     /// Calculates the minimum number of operations required to transform
@@ -85,3 +81,6 @@ public class Solution {
         return operations;
     }
 }
+/// ## Constraints
+/// - 1 <= target.length <= 100,000
+/// - 1 <= target[i] <= 100,000
