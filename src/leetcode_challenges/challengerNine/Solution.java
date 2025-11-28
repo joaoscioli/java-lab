@@ -4,14 +4,14 @@ public class Solution {
 
     /// ## isPalindrome
     ///
-    /// Determines whether a given integer is a palindrome.
+    /// Determines whether a given integer is a palindrome..
     ///
     /// A palindrome number reads the same backward as forward.
     /// This implementation avoids converting the integer to a string
     /// and instead reverses only half of the digits, improving performance
     /// and preventing overflow.
     ///
-    /// ### Rules & Notes
+    /// ### Rules & Notes:
     /// - Negative numbers are **not** palindromes.
     /// - Numbers ending with `0` (except `0` itself) are not palindromes.
     /// - The algorithm reverses *half* of the number for efficiency.
