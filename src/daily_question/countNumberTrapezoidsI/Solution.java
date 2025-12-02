@@ -1,4 +1,4 @@
-package leetcode_challenges.countNumberTrapezoidsI;
+package daily_question.countNumberTrapezoidsI;
 
 import java.util.*;
 
