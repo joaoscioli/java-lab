@@ -1,6 +1,33 @@
 package java_ebook_200_exercices;
 
 public class FindPerimeterRectangle {
+
+    /// ## rectanglePerimeter
+    ///
+    /// Calculates the **perimeter of a rectangle** given its length and width.
+    ///
+    /// ### Formula
+    /// The perimeter `P` of a rectangle is computed as:
+    ///
+    /// ```
+    /// P = 2 × (length + width)
+    /// ```
+    ///
+    /// ### Parameters
+    /// - **length** — The length of the rectangle. Must be a positive number.
+    /// - **width** — The width of the rectangle. Must be a positive number.
+    ///
+    /// ### Returns
+    /// A `double` representing the calculated perimeter of the rectangle.
+    ///
+    /// ### Throws
+    /// - `IllegalArgumentException`
+    ///   Thrown when `length` or `width` is less than or equal to zero.
+    ///
+    /// ### Example
+    /// ```java
+    /// double p = rectanglePerimeter(5.0, 8.0); // returns 26.0
+    /// ```
     public static double rectanglePerimeter(double length, double width) throws IllegalArgumentException {
 
         // Check if the inputs are valid numbers
@@ -12,6 +39,15 @@ public class FindPerimeterRectangle {
         return 2.0 * (length + width);
     }
 
+    /// ## main
+    ///
+    /// Demonstrates the usage of the `rectanglePerimeter` method by calculating
+    /// the perimeter of a rectangle with predefined dimensions.
+    ///
+    /// ### Example Output
+    /// ```
+    /// The perimeter of the rectangle is: 26.0
+    /// ```
     static void main() {
         double length = 5.0;
         double width = 8.0;
@@ -24,6 +60,3 @@ public class FindPerimeterRectangle {
         }
     }
 }
-
-// Output:
-// The perimeter of the rectangle is: 26.0
