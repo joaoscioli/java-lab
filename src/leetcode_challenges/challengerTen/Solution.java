@@ -1,4 +1,48 @@
 package leetcode_challenges.challengerTen;
 
-public class Solution {
+class Solution {
+    public boolean isMatch(String s, String p) {
+        int n = s.length();
+        int m = p.length();
+
+        boolean[][] dp = new boolean[n + 1][m + 1];
+
+        dp[0][0] = true;
+
+        // Handle patterns like a*, a*b*, a*b*c*
+        for (int j = 2; j <= m; j++) {
+            if (p.charAt(j - 1) == '*') {
+                dp[0][j] = dp[0][j - 2];
+            }
+        }
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= m; j++) {
+
+                char sc = s.charAt(i - 1);
+                char pc = p.charAt(j - 1);
+
+                // Case 1: normal character or '.'
+                if (pc == sc || pc == '.') {
+                    dp[i][j] = dp[i - 1][j - 1];
+                }
+
+                // Case 2: pattern contains '*'
+                else if (pc == '*') {
+
+                    // zero occurrences of p[j-2]
+                    dp[i][j] = dp[i][j - 2];
+
+                    char prev = p.charAt(j - 2);
+
+                    // one or more occurrences
+                    if (prev == sc || prev == '.') {
+                        dp[i][j] = dp[i][j] || dp[i - 1][j];
+                    }
+                }
+            }
+        }
+
+        return dp[n][m];
+    }
 }
