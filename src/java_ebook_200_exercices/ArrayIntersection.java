@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/// # ArrayIntersection
+/// # ArrayIntersection.
 ///
 /// This class demonstrates how to compute the **intersection** between two `ArrayList<Integer>`
 /// using `HashSet` in Java.

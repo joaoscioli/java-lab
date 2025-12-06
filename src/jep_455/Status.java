@@ -1,6 +1,6 @@
 package jep_455;
 
-/// # Status Class
+/// # Status Class.
 /// The `Status` class holds the status of a system operation as an `int`.
 /// It is used in conjunction with the `example_01_jep455` class to demonstrate
 /// the new `switch` features introduced in **JEP 455**.
