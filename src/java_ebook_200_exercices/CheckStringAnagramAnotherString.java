@@ -3,30 +3,31 @@ package java_ebook_200_exercices;
 import java.util.HashMap;
 
 public class CheckStringAnagramAnotherString {
-    public static boolean areAnagrams(String str1, String str2) {
-    // Function to clean and count characters
-        HashMap<Character, Integer> cleanAndCount(String s) {
-            HashMap<Character, Integer> count = new HashMap<>();
-            for (char c : s.toCharArray()) {
-                if (Character.isAlphabetic(c)) {
-                    char lowerChar = Character.toLowerCase(c);
-                    count.put(lowerChar, count.getOrDefault(lowerChar, 0) + 1);
-                }
+
+    // Helper function to clean the string and count letters
+    private static HashMap<Character, Integer> cleanAndCount(String s) {
+        HashMap<Character, Integer> count = new HashMap<>();
+
+        for (char c : s.toCharArray()) {
+            if (Character.isAlphabetic(c)) {
+                char lowerChar = Character.toLowerCase(c);
+                count.put(lowerChar, count.getOrDefault(lowerChar, 0) + 1);
             }
-            return count;
         }
 
+        return count;
+    }
+
+    public static boolean areAnagrams(String str1, String str2) {
         // Get character counts for both strings
         HashMap<Character, Integer> count1 = cleanAndCount(str1);
         HashMap<Character, Integer> count2 = cleanAndCount(str2);
 
         // Compare the two frequency counts
         return count1.equals(count2);
-
     }
 
     public static void main(String[] args) {
-
         String string1 = "listen";
         String string2 = "silent";
 
@@ -34,6 +35,3 @@ public class CheckStringAnagramAnotherString {
         System.out.println(string1 + " and " + string2 + " are anagrams: " + result);
     }
 }
-
-// Output:
-// listen and silent are anagrams: true
