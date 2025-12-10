@@ -1,4 +1,4 @@
-package leetcode_challenges.containerWithMostWater;
+package leetcode_challenges.challengerEleven;
 
 public class Solution {
 
