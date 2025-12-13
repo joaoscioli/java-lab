@@ -44,7 +44,8 @@ public class Solution {
     /// - 4 → IV
     ///
     /// Combined: **MCMXCIV**
-    public String intToRoman(int num) {
+    public String romanToInt(String s) {
+        int num = Integer.parseInt(s);
         if (num <= 0 || num > 3999) {
             throw new IllegalArgumentException(
                     "Invalid input. Please provide a valid positive integer within the range 1 to 3999."
