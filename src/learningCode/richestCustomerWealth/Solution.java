@@ -1,4 +1,4 @@
-package jep_455;
+package learningCode.richestCustomerWealth;
 
 import java.io.IO;
 

@@ -1,4 +1,4 @@
-package jep_455;
+package learningCode.richestCustomerWealth;
 
 /// # Status Class.
 /// The `Status` class holds the status of a system operation as an `int`.
