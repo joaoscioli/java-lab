@@ -1,4 +1,4 @@
-package learningCode.richestCustomerWealth;
+package leetcode_beginners_guide.richestCustomerWealth;
 
 /// # Status Class.
 /// The `Status` class holds the status of a system operation as an `int`.

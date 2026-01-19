@@ -1,4 +1,4 @@
-package learningCode.richestCustomerWealth;
+package leetcode_beginners_guide.richestCustomerWealth;
 
 import java.io.IO;
 

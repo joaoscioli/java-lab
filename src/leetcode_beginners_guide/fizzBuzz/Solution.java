@@ -1,4 +1,4 @@
-package learningCode.fizzBuzz;
+package leetcode_beginners_guide.fizzBuzz;
 
 import java.util.ArrayList;
 import java.util.List;
