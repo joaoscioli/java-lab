@@ -4,77 +4,77 @@ import java.util.*;
 
 /// ## Maximum Square Area by Removing Fences from a Field
 ///
-/// Esta classe resolve o problema de encontrar a **maior área possível de um quadrado**
-/// que pode ser formado em um campo retangular após a **remoção de cercas horizontais
-/// e verticais**.
+/// This class solves the problem of finding the **maximum possible square area**
+/// that can be formed inside a rectangular field after **removing horizontal
+/// and vertical fences**.
 ///
-/// O campo possui dimensões `m x n`, com cercas posicionadas em coordenadas
-/// discretas ao longo dos eixos horizontal e vertical.
-///
-/// ---
-///
-/// ### Ideia Central
-/// Um quadrado válido só pode ser formado se existir:
-/// - Uma **distância horizontal**
-/// - Uma **distância vertical**
-/// **iguais**
-///
-/// Assim, o problema se reduz a:
-/// 1. Calcular **todas as distâncias possíveis** entre pares de cercas horizontais.
-/// 2. Calcular **todas as distâncias possíveis** entre pares de cercas verticais.
-/// 3. Encontrar a **maior distância comum** entre os dois conjuntos.
+/// The field has dimensions `m x n`, and fences are placed at discrete
+/// positions along both axes.
 ///
 /// ---
 ///
-/// ### Estratégia
-/// - Adicionar implicitamente as bordas do campo (`1` e `m` / `n`) às cercas.
-/// - Gerar todas as diferenças possíveis entre pares de cercas.
-/// - Utilizar `Set` para evitar duplicatas e permitir busca eficiente.
-/// - Selecionar o maior comprimento de lado comum.
+/// ### Core Idea
+/// A valid square can only be formed if there exists:
+/// - A **horizontal distance**
+/// - A **vertical distance**
+/// that are **equal**
+///
+/// Therefore, the problem reduces to:
+/// 1. Computing **all possible distances** between pairs of horizontal fences.
+/// 2. Computing **all possible distances** between pairs of vertical fences.
+/// 3. Finding the **largest common distance** between the two sets.
 ///
 /// ---
 ///
-/// ### Complexidade
-/// - **Tempo**:
-///   - Geração das distâncias: `O(k² + l²)`
-///     onde `k` é o número de cercas horizontais e `l` o de verticais.
-/// - **Espaço**:
-///   - `O(k² + l²)` para armazenar as distâncias.
+/// ### Strategy
+/// - Implicitly include the field boundaries (`1` and `m` / `n`) as fences.
+/// - Generate all pairwise distances between fence positions.
+/// - Use `Set` to remove duplicates and allow efficient lookups.
+/// - Select the maximum distance that appears in both dimensions.
 ///
 /// ---
 ///
-/// ### Observações
-/// - Se não existir um lado comum entre as distâncias horizontais e verticais,
-///   o método retorna `-1`.
-/// - O cálculo da área utiliza `long` para evitar overflow.
-/// - O módulo é aplicado apenas ao valor final.
+/// ### Complexity
+/// - **Time Complexity**:
+///   - Distance generation: `O(h² + v²)`
+///     where `h` is the number of horizontal fences and `v` is the number of
+///     vertical fences.
+/// - **Space Complexity**:
+///   - `O(h² + v²)` for storing all possible distances.
+///
+/// ---
+///
+/// ### Notes
+/// - If no common side length exists, the method returns `-1`.
+/// - `long` is used to prevent overflow during area calculation.
+/// - The modulo operation is applied only to the final result.
 public class Solution {
 
-    /// Constante de módulo utilizada para limitar o valor final da área.
+    /// Modulo constant used to constrain the final area value.
     private static final long MOD = 1_000_000_007;
 
-    /// Retorna a maior área possível de um quadrado formado após a remoção das cercas.
+    /// Computes the maximum square area that can be formed after removing fences.
     ///
-    /// O método calcula todas as distâncias possíveis entre pares de cercas
-    /// horizontais e verticais e identifica o maior comprimento de lado comum.
+    /// The method evaluates all possible distances between horizontal and vertical
+    /// fences and identifies the largest common side length.
     ///
-    /// @param m altura total do campo
-    /// @param n largura total do campo
-    /// @param hFences posições das cercas horizontais removíveis
-    /// @param vFences posições das cercas verticais removíveis
-    /// @return maior área possível do quadrado módulo {@link #MOD},
-    ///         ou {@code -1} se nenhum quadrado puder ser formado
+    /// @param m height of the field
+    /// @param n width of the field
+    /// @param hFences positions of removable horizontal fences
+    /// @param vFences positions of removable vertical fences
+    /// @return maximum square area modulo {@link #MOD},
+    ///         or {@code -1} if no valid square can be formed
     public int maximizeSquareArea(int m, int n, int[] hFences, int[] vFences) {
 
-        /// Conjunto de todas as distâncias possíveis entre cercas horizontais.
+        /// All possible distances between horizontal fences.
         Set<Integer> hDistances = computeDistances(hFences, m);
 
-        /// Conjunto de todas as distâncias possíveis entre cercas verticais.
+        /// All possible distances between vertical fences.
         Set<Integer> vDistances = computeDistances(vFences, n);
 
         long maxSide = -1;
 
-        /// Busca pelo maior comprimento de lado comum entre os dois conjuntos.
+        /// Find the largest common side length.
         for (int d : hDistances) {
             if (vDistances.contains(d)) {
                 maxSide = Math.max(maxSide, d);
@@ -86,19 +86,19 @@ public class Solution {
         return (int) ((maxSide * maxSide) % MOD);
     }
 
-    /// Calcula todas as distâncias possíveis entre pares de cercas.
+    /// Computes all possible distances between pairs of fences.
     ///
-    /// O método:
-    /// 1. Adiciona as bordas do campo (`1` e `limit`) às cercas fornecidas.
-    /// 2. Ordena as posições.
-    /// 3. Calcula todas as diferenças positivas entre pares de posições.
+    /// The method:
+    /// 1. Adds the field boundaries (`1` and `limit`) to the fence list.
+    /// 2. Sorts all positions.
+    /// 3. Computes all positive differences between fence pairs.
     ///
-    /// @param fences posições das cercas removíveis
-    /// @param limit limite máximo do campo (altura ou largura)
-    /// @return conjunto contendo todas as distâncias possíveis
+    /// @param fences positions of removable fences
+    /// @param limit maximum boundary of the field (height or width)
+    /// @return set containing all possible distances
     private Set<Integer> computeDistances(int[] fences, int limit) {
 
-        /// Lista contendo as cercas e as bordas do campo.
+        /// List containing fences and field boundaries.
         List<Integer> list = new ArrayList<>();
         list.add(1);
         for (int f : fences) list.add(f);
@@ -106,7 +106,7 @@ public class Solution {
 
         Collections.sort(list);
 
-        /// Conjunto de distâncias únicas.
+        /// Set of unique distances.
         Set<Integer> distances = new HashSet<>();
 
         for (int i = 0; i < list.size(); i++) {
