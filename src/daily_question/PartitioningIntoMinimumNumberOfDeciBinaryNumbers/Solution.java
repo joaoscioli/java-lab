@@ -7,7 +7,7 @@ class Solution {
         for (char c : n.toCharArray()) {
             maxDigit = Math.max(maxDigit, c - '0');
         }
-
+///
         return maxDigit;
     }
 }
