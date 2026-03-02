@@ -1,7 +1,10 @@
 package leetcode_challenges.challengerFiftyEight;
 
 public class Solution {
+    private String s;
+
     public int lengthOfLastWord(String s) {
+        this.s = s;
         int i = s.length() - 1;
         int length = 0;
 
