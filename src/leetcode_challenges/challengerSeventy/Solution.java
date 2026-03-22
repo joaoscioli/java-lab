@@ -1,4 +1,7 @@
 package leetcode_challenges.challengerSeventy;
 
-public class Solution {
+class Solution {
+    public int climbStairs(int n) {
+
+    }
 }
