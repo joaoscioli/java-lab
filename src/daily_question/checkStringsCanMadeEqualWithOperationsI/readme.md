@@ -18,7 +18,7 @@ Explanation: We can do the following operations on s1:
 ````
 
 ### Example 2:
-````
+````java
 Input: s1 = "abcd", s2 = "dacb"
 Output: false
 Explanation: It is not possible to make the two strings equal.
