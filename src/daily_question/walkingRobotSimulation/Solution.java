@@ -1,4 +1,7 @@
 package daily_question.walkingRobotSimulation;
 
-public class Solution {
+class Solution {
+    public int robotSim(int[] commands, int[][] obstacles) {
+
+    }
 }
