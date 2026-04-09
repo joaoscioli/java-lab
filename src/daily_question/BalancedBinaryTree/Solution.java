@@ -1,37 +1,6 @@
 package daily_question.BalancedBinaryTree;
 
-/// ## Balanced Binary Tree
-///
-/// This solution determines whether a binary tree is **height-balanced**.
-///
-/// A binary tree is considered height-balanced if, for every node:
-/// - The height difference between its left and right subtrees is **at most 1**.
-///
-/// ### Key Idea
-/// The algorithm performs a **post-order DFS traversal**, computing subtree heights
-/// bottom-up. If an imbalance is detected at any point, the recursion immediately
-/// propagates a sentinel value (`-1`) to indicate failure.
-///
-/// This avoids redundant height calculations and ensures optimal performance.
-///
-/// ### Time Complexity
-/// - `O(n)` — each node is visited once.
-///
-/// ### Space Complexity
-/// - `O(h)` — recursion stack, where `h` is the height of the tree
-///   (worst case `O(n)`, best case `O(log n)`).
-///
-/// ### Examples
-/// ```text
-/// Input:  [3,9,20,null,null,15,7]
-/// Output: true
-///
-/// Input:  [1,2,2,3,3,null,null,4,4]
-/// Output: false
-///
-/// Input:  []
-/// Output: true
-/// ```
+
 public class Solution {
 
     /// Determines whether the given binary tree is height-balanced.
