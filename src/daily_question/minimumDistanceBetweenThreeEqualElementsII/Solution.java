@@ -1,5 +1,9 @@
 package daily_question.minimumDistanceBetweenThreeEqualElementsII;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 class Solution {
     public int minimumDistance(int[] nums) {
         Map<Integer, List<Integer>> map = new HashMap<>();
