@@ -7,15 +7,7 @@ package daily_question.mirrorDistanceOfAnInteger;
 /// - **Space Complexity:** O(1)
 class Solution {
 
-    /// ## mirrorDistance
-    ///
-    /// Calculates the mirror distance of an integer.
-    ///
-    /// ### Parameters
-    /// - `n`: a positive integer
-    ///
-    /// ### Returns
-    /// - The absolute difference between `n` and its reversed value
+
     public int mirrorDistance(int n) {
         int reversed = reverse(n);
         return Math.abs(n - reversed);
