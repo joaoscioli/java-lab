@@ -1,10 +1,5 @@
 package daily_question.mirrorDistanceOfAnInteger;
 
-/// ## Complexity
-///
-/// - **Time Complexity:** O(d)
-///   - `d` = number of digits in `n`
-/// - **Space Complexity:** O(1)
 class Solution {
 
 
