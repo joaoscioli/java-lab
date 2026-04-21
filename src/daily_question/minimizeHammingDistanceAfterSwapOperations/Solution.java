@@ -1,5 +1,10 @@
 package daily_question.minimizeHammingDistanceAfterSwapOperations;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 class Solution {
     public int minimumHammingDistance(int[] source, int[] target, int[][] allowedSwaps) {
         int n = source.length;
@@ -9,7 +14,9 @@ class Solution {
             uf.union(swap[0], swap[1]);
         }
 
-        Map<Integer, List<Integer>> groups = new HashMap<>();
+
+        Map<Integer, List<Integer>> groups;
+        groups = new HashMap<>();
         for (int i = 0; i < n; i++) {
             int root = uf.find(i);
             groups.computeIfAbsent(root, k -> new ArrayList<>()).add(i);
