@@ -6,6 +6,69 @@ import java.util.List;
 import java.util.Map;
 
 class Solution {
+
+    /// ## Sum of Distances
+    ///
+    /// Computes an array where each element represents the sum of absolute
+    /// distances between the current index and all other indices with the same value.
+    ///
+    /// For each index `i`, the result is:
+    ///
+    /// ```
+    /// result[i] = Σ |i - j|  for all j where nums[j] == nums[i] and j != i
+    /// ```
+    ///
+    /// ### Strategy
+    ///
+    /// 1. **Group Indices by Value**
+    ///    - Use a `HashMap<Integer, List<Integer>>` to store all indices
+    ///      where each value appears.
+    ///
+    /// 2. **Prefix Sum Optimization**
+    ///    - For each group of indices, compute a prefix sum array.
+    ///    - This allows efficient calculation of distances in `O(1)` per index.
+    ///
+    /// 3. **Distance Calculation**
+    ///    - For each index in the group:
+    ///
+    ///      - **Left contribution** (indices before current):
+    ///        ```
+    ///        left = i * idx - sum(previous indices)
+    ///        ```
+    ///
+    ///      - **Right contribution** (indices after current):
+    ///        ```
+    ///        right = sum(next indices) - (count of next indices * idx)
+    ///        ```
+    ///
+    ///      - Total:
+    ///        ```
+    ///        result[idx] = left + right
+    ///        ```
+    ///
+    /// This avoids the naive `O(n²)` approach and reduces it to linear time.
+    ///
+    /// ### Parameters
+    ///
+    /// - `nums` — An integer array where values may repeat.
+    ///
+    /// ### Returns
+    ///
+    /// - `long[]` — An array where each position contains the sum of distances
+    ///   to all other indices with the same value.
+    ///
+    /// ### Example
+    ///
+    /// ```java
+    /// Input: nums = [1, 3, 1, 1, 2]
+    /// Output: [5, 0, 3, 4, 0]
+    /// ```
+    ///
+    /// ### Complexity
+    ///
+    /// - Time: `O(n)` — Each index is processed a constant number of times.
+    /// - Space: `O(n)` — For storing groups and prefix sums.
+    ///
     public long[] distance(int[] nums) {
         int n = nums.length;
         long[] result = new long[n];
