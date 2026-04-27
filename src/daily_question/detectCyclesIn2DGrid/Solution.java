@@ -1,5 +1,8 @@
 package daily_question.detectCyclesIn2DGrid;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 class Solution {
     int n;
     int m;
@@ -27,7 +30,7 @@ class Solution {
         }
         return false;
     }public boolean bfs(char[][] grid,int i,int j){
-        Queue<pair>q=new LinkedList<>();
+        Queue<pair> q=new LinkedList<>();
         q.offer(new pair(i,j,-1,-1));
         char ch=grid[i][j];
         while(!q.isEmpty()){
