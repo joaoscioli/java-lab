@@ -7,6 +7,7 @@ A uni-value grid is a grid where all the elements of it are equal.
 Return the minimum number of operations to make the grid uni-value. If it is not possible, return -1.
 
 ### Example 1:
+![img.png](img.png)
 ````java
 Input: grid = [[2,4],[6,8]], x = 2
 Output: 4
@@ -18,6 +19,7 @@ A total of 4 operations were used.
 ````
 
 ### Example 2:
+![img_1.png](img_1.png)
 ````java
 Input: grid = [[1,5],[2,3]], x = 1
 Output: 5
@@ -25,6 +27,7 @@ Explanation: We can make every element equal to 3.
 ````
 
 ### Example 3:
+![img_2.png](img_2.png)
 ````java
 Input: grid = [[1,2],[3,4]], x = 2
 Output: -1
