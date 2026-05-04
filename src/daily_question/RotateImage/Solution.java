@@ -1,6 +1,44 @@
 package daily_question.RotateImage;
 
-
+/// Provides a solution for rotating a square matrix by 90 degrees clockwise.
+///
+/// The rotation is performed **in-place**, meaning the original matrix is
+/// modified directly without allocating another matrix.
+///
+/// The algorithm works in two main steps:
+///
+/// 1. **Transpose the matrix**
+///    - Swap `matrix[i][j]` with `matrix[j][i]`.
+///    - This converts rows into columns.
+///
+/// 2. **Reverse each row**
+///    - After transposition, reversing every row completes the
+///      90-degree clockwise rotation.
+///
+/// ## Example
+///
+/// ```java
+/// int[][] matrix = {
+///     {1, 2, 3},
+///     {4, 5, 6},
+///     {7, 8, 9}
+/// };
+///
+/// new Solution().rotate(matrix);
+///
+/// // matrix becomes:
+/// // {
+/// //     {7, 4, 1},
+/// //     {8, 5, 2},
+/// //     {9, 6, 3}
+/// // }
+/// ```
+///
+/// ## Complexity
+///
+/// - Time complexity: `O(n²)`, where `n` is the number of rows and columns.
+/// - Space complexity: `O(1)`, since the matrix is modified in-place.
+class Solution {
 
     /// Rotates the given `n x n` matrix by 90 degrees clockwise in-place.
     ///
