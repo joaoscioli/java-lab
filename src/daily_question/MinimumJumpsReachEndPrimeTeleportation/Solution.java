@@ -9,10 +9,43 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
 
+/// Solves the minimum jumps problem with optional prime-based teleportation.
+///
+/// The algorithm models the array as an unweighted graph where each index can move to:
+///
+/// - the previous index;
+/// - the next index;
+/// - any index whose value is divisible by the prime value at the current index.
+///
+/// A breadth-first search is used to guarantee the minimum number of jumps.
+///
+/// Prime factorization is optimized with a precomputed smallest prime factor table.
 class Solution {
+    /// Maximum supported value in the input array.
+    ///
+    /// This value defines the upper bound for the smallest prime factor sieve.
     private static final int MAX_VALUE = 1_000_000;
+
+    /// Precomputed smallest prime factor for every value from `0` to `MAX_VALUE`.
+    ///
+    /// For a prime number `p`, `SMALLEST_PRIME_FACTOR[p] == p`.
     private static final int[] SMALLEST_PRIME_FACTOR = buildSmallestPrimeFactor();
 
+    /// Returns the minimum number of jumps required to reach the last index.
+    ///
+    /// From each index, it is possible to jump to:
+    ///
+    /// - `index - 1`, if it exists;
+    /// - `index + 1`, if it exists;
+    /// - every index whose value is divisible by `nums[index]`, but only when
+    ///   `nums[index]` is prime.
+    ///
+    /// Prime teleportation for the same prime value is processed only once to avoid
+    /// repeated work and keep the BFS efficient.
+    ///
+    /// @param nums the array of positive integers
+    /// @return the minimum number of jumps needed to reach the last index, or `-1`
+    ///         if the last index cannot be reached
     public int minJumps(int[] nums) {
         int n = nums.length;
 
@@ -106,6 +139,18 @@ class Solution {
         return -1;
     }
 
+    /// Builds the smallest prime factor table using a sieve.
+    ///
+    /// The returned array stores the smallest prime divisor for each number from
+    /// `0` to `MAX_VALUE`.
+    ///
+    /// For example:
+    ///
+    /// - `smallestPrimeFactor[2] == 2`;
+    /// - `smallestPrimeFactor[6] == 2`;
+    /// - `smallestPrimeFactor[15] == 3`.
+    ///
+    /// @return an array containing the smallest prime factor for each supported value
     private static int[] buildSmallestPrimeFactor() {
         int[] smallestPrimeFactor = new int[MAX_VALUE + 1];
 
@@ -126,6 +171,14 @@ class Solution {
         return smallestPrimeFactor;
     }
 
+    /// Checks whether a value is prime.
+    ///
+    /// The check uses the precomputed smallest prime factor table.
+    /// A value is prime when it is at least `2` and its smallest prime factor is
+    /// the value itself.
+    ///
+    /// @param value the value to check
+    /// @return `true` if the value is prime, otherwise `false`
     private static boolean isPrime(int value) {
         return value >= 2 && SMALLEST_PRIME_FACTOR[value] == value;
     }
