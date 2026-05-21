@@ -39,7 +39,7 @@ class Solution {
     ///
     /// @param A the first integer array
     /// @param B the second integer array
-    /// @return an array where each position contains the number of common values
+    /// @return ana array where each position contains the number of common values
     ///         between the prefixes of `A` and `B` up to that index
     int[] findThePrefixCommonArray(int[] A, int[] B) {
         int n = A.length;
